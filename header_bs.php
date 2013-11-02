@@ -103,9 +103,15 @@ table
 <!-- 			  <li id="li_o">
 				<a href="./onetime.php">One Time form</a>
 			  </li> -->
-			  <li id="li_v">
+			  <li id="li_v" class="active">
 				<a href="./calc_edit_final.php">My Mess Options</a>
 			  </li>
+
+			  			  <li id="li_v">
+				<a href="./options_edit.php">Change Options</a>
+			  </li>
+
+
 
 
 			</ul>
@@ -212,6 +218,7 @@ table
 	  </div>
 	  <div class="modal-body">
 		
+		<h5>Hi.. Thank you for entering your mess options. </h5>
 		
 	
 		<img class="pull-right img-rounded" src="http://graph.facebook.com/rohanraja9/picture?type=large">

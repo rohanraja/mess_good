@@ -354,8 +354,7 @@ table td img
 
 			<br>
 			Created by : 
-			<b>Rohan Raja : rohanraja9@gmail.com<br>
-				Jot Sarup : jotsarup@gmail.com</b>
+			<b>Rohan Raja : rohanraja9@gmail.com<br></b>
 
 				</p>
 		</div>

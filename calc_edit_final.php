@@ -382,7 +382,7 @@ table td.active
 			<br>
 			Created by : 
 			<a href="#roh_modal" role="button" class="" data-toggle="modal"><b>Rohan Raja : rohanraja9@gmail.com</a><br>
-				<a href="#jot_modal" role="button" class="" data-toggle="modal">Jot Sarup : jotsarup@gmail.com</a></b>
+				</b>
 			
 				</p>
 		</div>

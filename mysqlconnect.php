@@ -4,7 +4,7 @@
  */
 
 // DATABASE: Connection variables
-$db_host		= "127.0.0.1:3307";
+$db_host		= "127.0.0.1";
 $db_name		= "pat_mess";
 $db_username	= "root";
 $db_password	= "root";
