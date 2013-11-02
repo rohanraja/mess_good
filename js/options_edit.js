@@ -77,6 +77,8 @@ function get_send_options(table_id, type)
 	
 	send_options(tmpar, type);
 	
+	alert('Updated Meals type : ' + type);
+	
 	
 }
 

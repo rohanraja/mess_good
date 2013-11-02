@@ -134,18 +134,40 @@ table td img
 
 			<section id="teaching">
 
-				<h2 class="description" for="element_1">Breakfast</h2><p id="li_1">
+				<h2 class="description" for="element_1">Monthly Bill of All Students</h2><p id="li_1">
 
-		<table  id="courses" width="90%" align="middle" class="result"><tbody><tr><td >Day</td><td>Meal 1</td><td>Meal 2</td><td>Meal 3</td><td>Meal 4</td></tr>
+		<table  id="courses" width="90%" align="middle" class="result"><tbody><tr><td >S.No</td><td>Roll No</td><td>Name</td><td>Amount</td></tr>
 		</tbody><tbody>
 
 	<?php 
 
 
-		include('current_meal.php');
+		include('mysqlconnect.php');
 
 
-		do_table("b");
+		$result_db = mysql_query("SELECT * FROM choices ORDER BY s_id ASC");
+		
+		$cnt2 = 1;
+		
+		while($row = mysql_fetch_array($result_db)) {
+		
+		
+			 $sid = $row['s_id'];
+			 $mpay = $row['cost_month_nobasic'] ;
+			 
+			 $result2 = mysql_query("SELECT name FROM pat_mess.students WHERE staff_ID LIKE '$sid'");
+			 $row2 = mysql_fetch_array($result2);
+			 
+			 $namee = $row2[0] ;
+			 
+			 echo '<tr><td>'.$cnt2.'</td><td>'.$sid.'</td><td>'.$namee.'</td><td>₹ '.$mpay.'</td></tr>';
+
+
+			$cnt2 = $cnt2 + 1;
+			
+		
+		
+		}
 
 	?>	
 
@@ -155,106 +177,6 @@ table td img
 </p>
 
 
-<button class="btn btn-primary" onclick="get_send_options('courses', 'b')">Submit</button>
-</section>
-
-<hr>
-
-	<section id="supervision">
-		<h2 class="description" for="element_3">Lunch</h2><p id="li_2">
-
-
-
-
-
-<table id="superv" width="40%" align="middle" class="result"><tbody><tr><td >Day</td><td>Meal 1</td><td>Meal 2</td><td>Meal 3</td><td>Meal 4</td></tr></tbody><tbody>
-
-	<?php 
-
-
-		do_table("l");
-
-	?>
-
-
-		</tbody></table>
-
-
-
-	<br><h4 class="total text-success">TOTAL : Rs <span id="totsuper"></span> per week (<span id="persuper"></span>%)</h4>
-
-</p>
-
-<hr>	
-
-<button class="btn btn-primary" onclick="get_send_options('superv', 'l')">Submit</button>
-</section>
-
-<section id="research">
-
-<h2 class="description" for="element_4">Snacks</h2>
-
-<br>
-
-
-
-
-
-
-<p id="li_3">
-
-	<table id="researchtb" width="40%" align="middle" class="result"><tbody><tr><td >Day</td><td>Meal 1</td><td>Meal 2</td><td>Meal 3</td><td>Meal 4</td></tr></tbody><tbody>
-
-	<?php 
-
-
-		do_table("l");
-
-	?>
-
-
-		</tbody></table>
-
-	<br><h4 class="total text-success">TOTAL : Rs <span id="totresearch"></span> per week (<span id="perresearch"></span>%)</h4>
-
-</p>
-
-
-
-
-<hr> 
-
-<button class="btn btn-primary" onclick="get_send_options('researchtb', 's')">Submit</button>
-</section>
-<section id="admin">
-	<h2 class="description" for="element_5">Dinner</h2>
-<br>
-
-<!-- 	<input type="checkbox" id="acheck" onchange="a_form.onchangee()" /><label for="acheck" id="ac" class="editbut">Edit</label>
- -->
-
-
-<p id="li_4"><table id="admintb" width="40%" align="middle" class="result"><tbody><tr><td >Day</td><td>Meal 1</td><td>Meal 2</td><td>Meal 3</td><td>Meal 4</td></tr></tbody><tbody>
-
-<?php 
-
-
-	do_table("l");
-
-?>
-
-
-	</tbody></table>
-
-
-	<br><h4 class="total text-success">TOTAL : Rs <span id="totadmin"></span> per week (<span id="peradmin"></span>%)</h4>
-</p>
-
-
-
-<hr>
-
-<button class="btn btn-primary" onclick="get_send_options('admintb', 'd')">Submit</button>
 </section>
 
 	<br>

@@ -54,6 +54,9 @@ table
 	text-align: left;
 }
 
+
+
+
 </style>
 
 
@@ -103,10 +106,7 @@ table
 			  <li id="li_v">
 				<a href="./calc_edit_final.php">My Mess Options</a>
 			  </li>
-			  
-			  <li id="li_v">
-			  	<a href="./options_edit.php">Bubbe Ka Page</a>
-			    </li>
+
 
 			</ul>
 		  </div>
@@ -197,6 +197,29 @@ table
 	  </div>
 	</div>
 
+
+
+
+
+
+
+
+	<div id="roh_modal" style="" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Rohan Raja</h3>
+		
+	  </div>
+	  <div class="modal-body">
+		
+		
+	
+		<img class="pull-right img-rounded" src="http://graph.facebook.com/rohanraja9/picture?type=large">
+	
+	
+	  </div>
+
+	</div>
 
 
 

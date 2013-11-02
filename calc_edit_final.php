@@ -78,8 +78,17 @@ table td.active
 		  				"margin-top: 20px; text-align:center; width:220px; font-size:20px" value="S2 12/13">
 		  				
 		  				<?php
-		  				$mydate=getdate(date("U"));
-						echo "$mydate[month], $mydate[year]";
+		  				
+		  				$plusornot = ""; 
+		  				$curday = date('j');
+		  				if($curday>25)
+		  					$plusornot = '+1 month' ;
+		  				else
+		  					$plusornot = '+0 month' ;
+		  				
+		  				$mnth = date('F', strtotime($plusornot)) ;
+		  				$yrr = date('Y', strtotime($plusornot)) ;
+						echo "$mnth, $yrr";
 						?>
 
 					</b>
@@ -100,13 +109,19 @@ table td.active
 		  		  									<b class="element select large" id="cur_tot" name="cur_tot"
 		  		  				onchange="oncheckchange()" style=
 		  		  				"margin-top: 20px; text-align:center; width:220px; font-size:20px" value="S2 12/13">
-		  TOTAL : Rs <span id="tot_fix">56</span> per week
+		  TOTAL : ₹ <span id="tot_fix">0</span> per week
 		  
 		  <br>
 		  <br>
 		  
-		  (Basic Rs 56 per week)
+		  (Basic ₹ <span class="basic_display">56</span> per week)
 		  
+		  <br>
+		  <br>
+		  
+		  <span class="month_tot text-error">
+		  TOTAL ₹ <span class="month_total">0</span> for this month
+		  </span>
 		  </b>
 		  		  			  				</div>
 		  
@@ -116,7 +131,7 @@ table td.active
 		<li onclick="hover_admin()">		  		<div style="width:258px; text-align:center; margin-top:30px">	  											  
 		  		  
 		  		  			<b class="element select large">
-<button class="btn btn-primary btn-large" onclick="get_and_send_choices()">Save</button>
+<button class="btn btn-primary btn-large" onclick="get_and_send_choices_save()">Save</button>
 		  		
 		  					</b>
 		  		  		</div></li>
@@ -148,7 +163,7 @@ table td.active
 
 		</tbody></table>
 
-	<br><h4 class="total text-success">TOTAL : Rs <span id="totteach">0</span> per week (<span id="perteach"></span>%)</h4>
+	<br><h4 class="total text-success">TOTAL : ₹ <span id="totteach">0</span> per week <span id="perteach"></span></h4>
 </p>
 </section>
 
@@ -175,7 +190,7 @@ table td.active
 
 		
 	
-	<br><h4 class="total text-success">TOTAL : Rs <span id="totsuper">0</span> per week (<span id="persuper"></span>%)</h4>
+	<br><h4 class="total text-success">TOTAL : ₹ <span id="totsuper">0</span> per week <span id="persuper"></span></h4>
 
 </p>
 
@@ -207,7 +222,7 @@ table td.active
 
 		</tbody></table>
 
-	<br><h4 class="total text-success">TOTAL : Rs <span id="totresearch">0</span> per week (<span id="perresearch"></span>%)</h4>
+	<br><h4 class="total text-success">TOTAL : ₹ <span id="totresearch">0</span> per week <span id="perresearch"></span></h4>
 
 </p>
 
@@ -237,7 +252,7 @@ table td.active
 	</tbody></table>
 
 		
-	<br><h4 class="total text-success">TOTAL : Rs <span id="totadmin">0</span> per week (<span id="peradmin"></span>%)</h4>
+	<br><h4 class="total text-success">TOTAL : ₹ <span id="totadmin">0</span> per week <span id="peradmin"></span></h4>
 </p>
 
 
@@ -250,7 +265,7 @@ table td.active
 	<div id="sumdiv">
 	
 
-<h3 class="description" style="color : red">Total Weekly Bill : Rs <span id="totgrand"></span></h3>
+<h3 class="description" style="color : red">Total Weekly Bill : ₹ <span id="totgrand"></span></h3>
 
 <hr>
 
@@ -328,9 +343,25 @@ table td.active
 	
 	td
 	{
-		text-align: center;
+		text-align: center !important;
 	}
-	</style>
+
+	th
+	{
+		text-align: center !important;
+	}
+	
+	td
+	{
+		cursor:pointer;
+	}
+	
+	td:hover
+	{
+		background-color: #fcf8e3 !important;
+	}
+	
+		</style>
 	
 	<script>
 	
@@ -350,8 +381,8 @@ table td.active
 			
 			<br>
 			Created by : 
-			<b>Rohan Raja : rohanraja9@gmail.com<br>
-				Jot Sarup : jotsarup@gmail.com</b>
+			<a href="#roh_modal" role="button" class="" data-toggle="modal"><b>Rohan Raja : rohanraja9@gmail.com</a><br>
+				<a href="#jot_modal" role="button" class="" data-toggle="modal">Jot Sarup : jotsarup@gmail.com</a></b>
 			
 				</p>
 		</div>
